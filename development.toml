@@ -10,8 +10,8 @@ CURRENCYBEACON_API_KEY = 'POHoHITslYQjTWCFlvYH09cD7INZxC3i'
 [pymysql]
 host = '127.0.0.1'
 port = 3306
-user = 'root'
-password = ''
+user = 'kevin'
+password = '4jikQ7PPtU'
 db = 'smart_invest'
 charset = 'utf8mb4'
 use_unicode = true

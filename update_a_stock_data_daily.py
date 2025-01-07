@@ -9,6 +9,7 @@ import sys
 import toml
 import akshare as ak
 import records
+import pandas as pd
 
 NAME = os.path.basename(os.path.splitext(__file__)[0])
 CONFIG = toml.load(os.getenv('ENV', 'development') + '.toml')
@@ -21,20 +22,13 @@ def get_daily_data(day_start, day_end):
     # sz001696 宗申动力
     # 沪深300 上海交易所 000300 深圳交易所 399300
     # 科创50 000688
-    symbol = 'sh000300'
+    symbol = '000300'
     today = datetime.datetime.today()
     start_date = (today-datetime.timedelta(days=90)).strftime("%Y%m%d")
     end_date = today.strftime("%Y%m%d")
-    df = ak.stock_zh_index_daily_em(symbol=symbol, start_date=start_date, end_date=end_date)
-    sql = f"""
-        SELECT date_trunc('month', `date`) month,
-                sum(cost) cost, 
-                sum(revenue) rev
-        FROM report_ssp_data_day
-        WHERE `date` <= '{day_end}' AND `date` >= '{day_start}' AND `dsp_group_name` != 'scaler'
-        GROUP BY month
-        ORDER BY month
-    """
+    df = ak.stock_zh_index_daily_em(symbol=f'sh{symbol}', start_date=start_date, end_date=end_date)
+    df['date'] = pd.to_datetime(df['date'])
+    df['symbol'] = symbol
     logging.info(f'sql: {sql}')
     results = clickhouse_client.execute(sql)
     res = []
