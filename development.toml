@@ -1,0 +1,17 @@
+[default]
+log_level = 'info'
+log_size = 52428800
+log_format = '%(asctime)s [%(levelname)s] %(filename)s@%(lineno)s - %(funcName)s(): %(message)s'
+crontab = 'crontab'
+
+[akshare]
+CURRENCYBEACON_API_KEY = 'POHoHITslYQjTWCFlvYH09cD7INZxC3i'
+
+[pymysql]
+host = '127.0.0.1'
+port = 3306
+user = 'root'
+password = ''
+db = 'smart_invest'
+charset = 'utf8mb4'
+use_unicode = true
