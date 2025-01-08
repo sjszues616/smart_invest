@@ -12,6 +12,11 @@ host = '127.0.0.1'
 port = 3306
 user = 'kevin'
 password = '4jikQ7PPtU'
-db = 'smart_invest'
+db = 'smart_investment'
 charset = 'utf8mb4'
 use_unicode = true
+
+[clickhouse]
+
+[job.update_a_stock_daily_data]
+table_name = 'a_stock_daily_data'
