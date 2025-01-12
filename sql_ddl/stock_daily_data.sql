@@ -10,3 +10,8 @@ CREATE TABLE smart_invest.`a_stock_daily_data` (
   `volume` bigint DEFAULT 0 COMMENT '成交量; 注意单位: 股',
   `amount` bigint DEFAULT 0 COMMENT '成交额; 注意单位: 元'
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8mb3 ROW_FORMAT=DYNAMIC COMMENT='应用类别定义表';
+
+-- 清空smart_investment 表
+delete from smart_investment.a_stock_daily_data;
+-- 查看数据
+SELECT * FROM smart_investment.a_stock_daily_data  WHERE date > '2024-01-01' and symbol='sh000300'

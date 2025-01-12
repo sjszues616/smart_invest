@@ -6,6 +6,12 @@ name = "pypi"
 [packages]
 toml = "*"
 records = "*"
+apscheduler = "*"
+pymysql = "*"
+supervisor = "*"
+pytz = "*"
+requests = "*"
+pandas = "*"
 
 [dev-packages]
 

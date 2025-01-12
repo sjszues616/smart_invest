@@ -1,0 +1,26 @@
+2025-01-12 23:23:56,828 [INFO] base.py@507 - add_job(): Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-12 23:23:56,829 [INFO] base.py@1090 - _real_add_job(): Added job "update_a_stock_daily_data" to job store "default"
+2025-01-12 23:23:56,829 [INFO] base.py@214 - start(): Scheduler started
+2025-01-12 23:26:32,106 [INFO] cron.py@54 - main(): 'development.toml' updated, restart scheduler.
+2025-01-12 23:26:32,106 [INFO] base.py@245 - shutdown(): Scheduler has been shut down
+2025-01-12 23:26:32,107 [INFO] base.py@507 - add_job(): Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-12 23:26:32,107 [INFO] base.py@1090 - _real_add_job(): Added job "update_a_stock_daily_data" to job store "default"
+2025-01-12 23:26:32,107 [INFO] base.py@214 - start(): Scheduler started
+2025-01-12 23:33:15,130 [INFO] base.py@507 - add_job(): Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-12 23:33:15,131 [INFO] base.py@1090 - _real_add_job(): Added job "update_a_stock_daily_data" to job store "default"
+2025-01-12 23:33:15,131 [INFO] base.py@214 - start(): Scheduler started
+2025-01-12 23:35:21,372 [INFO] base.py@507 - add_job(): Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-12 23:35:21,372 [INFO] base.py@1090 - _real_add_job(): Added job "update_a_stock_daily_data" to job store "default"
+2025-01-12 23:35:21,372 [INFO] base.py@214 - start(): Scheduler started
+2025-01-12 23:40:00,000 [INFO] base.py@129 - run_job(): Running job "update_a_stock_daily_data (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*/10'], next run at: 2025-01-12 15:40:00 UTC)" (scheduled at 2025-01-12 15:40:00+00:00)
+2025-01-12 23:40:00,035 [INFO] cron.py@24 - do_job(): job='update_a_stock_daily_data' run command='python update_a_stock_daily_data.py' return 2
+2025-01-12 23:40:00,036 [INFO] base.py@156 - run_job(): Job "update_a_stock_daily_data (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*/10'], next run at: 2025-01-12 15:50:00 UTC)" executed successfully
+2025-01-12 23:50:00,000 [INFO] base.py@129 - run_job(): Running job "update_a_stock_daily_data (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*/10'], next run at: 2025-01-12 16:00:00 UTC)" (scheduled at 2025-01-12 15:50:00+00:00)
+2025-01-12 23:50:00,034 [INFO] cron.py@24 - do_job(): job='update_a_stock_daily_data' run command='python update_a_stock_daily_data.py' return 2
+2025-01-12 23:50:00,035 [INFO] base.py@156 - run_job(): Job "update_a_stock_daily_data (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*/10'], next run at: 2025-01-12 16:00:00 UTC)" executed successfully
+2025-01-13 00:00:00,000 [INFO] base.py@129 - run_job(): Running job "update_a_stock_daily_data (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*/10'], next run at: 2025-01-12 16:10:00 UTC)" (scheduled at 2025-01-12 16:00:00+00:00)
+2025-01-13 00:00:00,033 [INFO] cron.py@24 - do_job(): job='update_a_stock_daily_data' run command='python update_a_stock_daily_data.py' return 2
+2025-01-13 00:00:00,034 [INFO] base.py@156 - run_job(): Job "update_a_stock_daily_data (trigger: cron[month='*', day='*', day_of_week='*', hour='*', minute='*/10'], next run at: 2025-01-12 16:10:00 UTC)" executed successfully
+2025-01-13 00:06:08,191 [INFO] base.py@507 - add_job(): Adding job tentatively -- it will be properly scheduled when the scheduler starts
+2025-01-13 00:06:08,193 [INFO] base.py@1090 - _real_add_job(): Added job "update_a_stock_daily_data" to job store "default"
+2025-01-13 00:06:08,193 [INFO] base.py@214 - start(): Scheduler started

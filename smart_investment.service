@@ -1,0 +1,18 @@
+[Unit]
+Wants=network-online.target
+After=network.target network-online.target
+Description=smart_investment
+
+[Service]
+WorkingDirectory=/mnt/d/project/smart_investment/
+ExecStart=/home/kevin/.local/bin/pipenv run supervisord -c supervisord.conf
+Type=forking
+KillMode=process
+Restart=on-failure
+LimitNOFILE=100000
+LimitNPROC=100000
+User=kevin
+Group=kevin
+
+[Install]
+WantedBy=multi-user.target
