@@ -9,7 +9,7 @@ import sys
 import toml
 import akshare as ak
 import pandas as pd
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, text
 
 NAME = os.path.basename(os.path.splitext(__file__)[0])
 CONFIG = toml.load(os.getenv('ENV', 'development') + '.toml')
@@ -23,9 +23,17 @@ def get_daily_data(day_start, day_end, symbol):
     start_date = datetime.datetime.strptime(day_start,'%Y-%m-%d').strftime("%Y%m%d")
     end_date = datetime.datetime.strptime(day_end,'%Y-%m-%d').strftime("%Y%m%d")
     df = ak.stock_zh_index_daily_em(symbol=symbol, start_date=start_date, end_date=end_date)
-    df['date'] = pd.to_datetime(df['date'])
     df['symbol'] = symbol
-    df.to_sql(MYCONFIG['table_name'], con=engine, if_exists='replace', index=False)
+    for index, row in df.iterrows():
+        insert_stmt = """INSERT INTO a_stock_daily_data (`date`, symbol, open, close, high, low, volume, amount) VALUES (:date, :symbol, :open, :close, :high, :low, :volume, :amount) ON DUPLICATE KEY UPDATE open = VALUES(open), close = VALUES(close), high = VALUES(high), low = VALUES(low), volume = VALUES(volume), amount = VALUES(amount)
+        """
+        with engine.connect() as connection:
+            print(row.to_dict())
+            connection.execute(text(insert_stmt), row.to_dict())
+
+    with engine.connect() as connection:
+        result = connection.execute(text("SELECT count(1) from a_stock_daily_data"))
+        print("数据库连接测试：", result.scalar())
 
 
 def main():
@@ -41,7 +49,8 @@ def main():
     if len(sys.argv) > 2 and sys.argv[2]:
         day_end = sys.argv[2]
     for symbol in MYCONFIG['symbols']:
-        get_daily_data(day_start,day_end,symbol)
+        get_daily_data('2015-01-01','2025-01-08',symbol)
+        # get_daily_data(day_start,day_end,symbol)
 
 
 if __name__ == "__main__":

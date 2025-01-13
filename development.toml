@@ -22,7 +22,7 @@ use_unicode = true
 table_name = 'a_stock_daily_data'
 cron = '*/10 * * * *'
 timeout = 10
-command = 'python update_a_stock_daily_data.py'
+command = 'python cron/update_a_stock_daily_data.py'
 symbols = ['sh000300']
 # sz001696 宗申动力
 # 沪深300 上海交易所 sh000300 深圳交易所 sz399300 
