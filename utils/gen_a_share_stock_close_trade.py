@@ -5,7 +5,8 @@ from sqlalchemy import create_engine
 import toml
 import pandas as pd
 
-from utils import gen_stock_candle_trend_chart
+sys.path.insert(0,os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+from utils.utils import gen_stock_candle_trend_chart
 
 CONFIG = toml.load(os.getenv('ENV', 'development') + '.toml')
 DATABASE_URL = 'mysql+pymysql://%(user)s:%(password)s@%(host)s:%(port)d/%(db)s?charset=%(charset)s' % CONFIG['pymysql']
